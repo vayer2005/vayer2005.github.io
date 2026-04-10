@@ -5,6 +5,12 @@
     box-sizing: border-box;
 }
 
+/* Paragraph rhythm after reset — avoids collapsed <p> when CSS load/order differs (e.g. GitHub). */
+p {
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
@@ -140,13 +146,18 @@ a:hover {
     font-weight: bold;
 }
 
-/* Writing list */
+/* Writing links (no list markers) */
 .writing-list {
-    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 1rem;
+    line-height: 1.7;
 }
 
-.writing-list li {
-    margin-bottom: 12px;
+.writing-list a {
+    font-weight: bold;
 }
 
 /* Article pages */
@@ -192,6 +203,13 @@ a:hover {
     margin: -8px 0 20px;
 }
 
+.article-body .article-figure + .quote-citation {
+    margin-top: -0.25rem;
+    margin-left: 1.25rem;
+    padding-left: 1rem;
+    max-width: min(28rem, calc(100% - 1.25rem));
+}
+
 .article-body pre {
     margin: 18px 0;
     padding: 14px 16px;
@@ -207,11 +225,15 @@ a:hover {
 }
 
 .article-body .article-figure {
-    margin: 20px 0;
+    margin: 1.5rem 0 1.75rem 1.25rem;
+    max-width: min(28rem, calc(100% - 1.25rem));
+    padding-left: 1rem;
+    border-left: 2px solid #e0e0e0;
 }
 
 .article-body .article-figure img,
 .article-body .article-figure video {
+    width: 100%;
     max-width: 100%;
     height: auto;
     display: block;
@@ -241,5 +263,17 @@ a:hover {
     
     .social-links {
         justify-content: center;
+    }
+
+    .article-body .article-figure {
+        margin-left: 0.75rem;
+        max-width: calc(100% - 0.75rem);
+        padding-left: 0.75rem;
+    }
+
+    .article-body .article-figure + .quote-citation {
+        margin-left: 0.75rem;
+        padding-left: 0.75rem;
+        max-width: calc(100% - 0.75rem);
     }
 }
