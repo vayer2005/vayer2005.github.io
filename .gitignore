@@ -1,2 +1,3 @@
-# Local source asset too large for GitHub (>100MB); site uses compressed MP4
+.DS_Store
+# Local source asset too large for GitHub (>100MB)
 images/memory-task.gif
